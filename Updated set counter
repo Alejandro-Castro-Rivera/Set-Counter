@@ -1,0 +1,21 @@
+import time
+
+print("Welcome to set counter.")
+def set_counter():
+    time.sleep(3)
+    exercise = str(input("What is your exercise? ", ))
+    sets = int(input("How many sets? ", ))
+    break_time = int(input("How many seconds do you want? ", ))
+    sets_missing = int(input("Enter the current set. ", ))
+    while sets - sets_missing != 0:
+        if sets < sets_missing:
+            return "Over the limit."
+        else:
+            print(f"The {exercise} is/are missing {sets - sets_missing} set(s).")
+            time.sleep(1)
+            print("Break")
+            time.sleep(break_time)
+            sets_missing = int(input("Enter the current set. ", ))
+    return f"The {exercise} has/have been completed."
+
+print(set_counter())
