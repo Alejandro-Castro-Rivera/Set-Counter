@@ -1,19 +1,19 @@
 import time
 
-print("Bienvenido a contador de set.")
+print("Bienvenido a contador de sets.")
 def contador_de_sets():
     time.sleep(3)
-    ejercicio = str(input("Cual es tu ejercicio? ", ))
-    sets = int(input("Cuantos sets seran? ", ))
-    tiempo_de_descanso = int(input("Cuantos segundos de descanso tu quieres? ", ))
+    ejercicio = str(input("Cuál es tu ejercicio? ", ))
+    sets = int(input("Cuántos sets seran? ", ))
+    tiempo_de_descanso = int(input("Cuántos segundos de descanso tu quieres? ", ))
     sets_que_faltan = int(input("Pon el numero de set que vas. ", ))
     while sets - sets_que_faltan != 0:
         if sets < sets_que_faltan:
-            return "Sobre el limite"
+            return "Sobre el limite."
         else:
             print(f"El/Los {ejercicio} le falta(n) {sets - sets_que_faltan} set(s).")
             time.sleep(1)
-            print("Descanso")
+            print("Descanso.")
             time.sleep(tiempo_de_descanso)
             sets_que_faltan = int(input("Pon el numero de set que vas. ", ))
     return f"El/Los {ejercicio} se ha(n) completado."
