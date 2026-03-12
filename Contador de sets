@@ -1,4 +1,8 @@
 import time
+import winsound
+
+audio = r"C:\Users\andro\Downloads\Connor_Price_Lucca_DL_-_False_Alarm_Instrumental.wav"  #Connor Price & Luca DL False
+# Alarm Instrumental
 
 print("Bienvenido a contador de sets.")
 def contador_de_sets():
@@ -15,6 +19,13 @@ def contador_de_sets():
             time.sleep(1)
             print("Descanso.")
             time.sleep(tiempo_de_descanso)
+            tiempo_de_empezar = time.time()
+            tiempo_de_terminar = time.time()
+            if tiempo_de_empezar - tiempo_de_terminar <= 0:
+                winsound.PlaySound(audio, winsound.SND_ASYNC)
+                parar = input("Pon 'parar' para parar la musica: ", )
+                if parar == "parar":
+                    winsound.PlaySound(None, winsound.SND_PURGE)
             sets_que_faltan = int(input("Pon el numero de set que vas. ", ))
     return f"El/Los {ejercicio} se ha(n) completado."
 
