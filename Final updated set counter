@@ -7,10 +7,10 @@ audio = r"C:\Users\andro\Downloads\Connor_Price_Lucca_DL_-_False_Alarm_Instrumen
 print("Welcome to set counter.")
 def set_counter():
     time.sleep(3)
-    exercise = str(input("What is your exercise? ", ))
-    sets = int(input("How many sets? ", ))
-    break_time = int(input("How many seconds do you want? ", ))
-    sets_missing = int(input("Enter the current set. ", ))
+    exercise = str(input("What is your exercise: ", ))
+    sets = int(input("How many sets: ", ))
+    break_time = int(input("How many seconds do you want: ", ))
+    sets_missing = int(input("Enter the current set: ", ))
     while sets - sets_missing != 0:
         if sets < sets_missing:
             return "Over the limit."
@@ -24,8 +24,11 @@ def set_counter():
             if start_time - end_time <= 0:
                 winsound.PlaySound(audio, winsound.SND_ASYNC)
                 stop = input("Enter 'stop' to stop the music: ", )
+                while stop != "stop":
+                    winsound.PlaySound(audio, winsound.SND_ASYNC)
+                    stop = input("Enter 'stop' to stop the music: ", )
                 if stop == "stop":
-                    winsound.PlaySound(None, winsound.SND_PURGE)
+                        winsound.PlaySound(None, winsound.SND_ASYNC)
             sets_missing = int(input("Enter the current set. ", ))
     return f"The {exercise} has/have been completed."
 
