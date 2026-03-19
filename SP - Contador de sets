@@ -24,8 +24,11 @@ def contador_de_sets():
             if tiempo_de_empezar - tiempo_de_terminar <= 0:
                 winsound.PlaySound(audio, winsound.SND_ASYNC)
                 parar = input("Pon 'parar' para parar la musica: ", )
-                if parar == "parar":
-                    winsound.PlaySound(None, winsound.SND_PURGE)
+                while parar != "parar":
+                    winsound.PlaySound(audio, winsound.SND_ASYNC)
+                    parar = input("Pon 'parar' para parar la musica: ", )
+                    if parar == "parar":
+                        winsound.PlaySound(None, winsound.SND_PURGE)
             sets_que_faltan = int(input("Pon el numero de set que vas. ", ))
     return f"El/Los {ejercicio} se ha(n) completado."
 
